@@ -5,6 +5,7 @@ Projekt z technologii chmurowych oraz bezpieczeństwa. Portal będzie nieznaczni
 ## Podstawowy zamysł użyteczności aplikacji
 
 - Możliwość przeglądania postów dla wszystkich (również niezalogowanych) użytkowników.
+- Mośliwość oznaczenia posta jako dostępnego tylko dla zalogowanych
 - Publikowanie postów dla wszystkich zalogowanych użytkowników
 - Usówanie (w rozszerzonej wersji notki adminów) dla adminów.
   
