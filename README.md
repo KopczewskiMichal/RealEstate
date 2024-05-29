@@ -1,24 +1,24 @@
-# Twitter
+# RealEstates
 
-Projekt z technologii chmurowych oraz bezpieczeństwa. Portal będzie nieznacznie przypominał Twittera, zawierając modyfikacje potrzebne do wyższych punktacji z przedmiotów.
+Projekt z technologii chmurowych oraz bezpieczeństwa. Portal do handlu nieruchomościami.
 
 ## Podstawowy zamysł użyteczności aplikacji
 
-- Możliwość przeglądania postów dla wszystkich (również niezalogowanych) użytkowników.
-- Mośliwość oznaczenia posta jako dostępnego tylko dla zalogowanych
-- Publikowanie postów dla wszystkich zalogowanych użytkowników
-- Usówanie (w rozszerzonej wersji notki adminów) dla adminów.
+- Możliwość przeglądania ofert dla wszystkich (również niezalogowanych) użytkowników
+- Mośliwość komentowania nieruchomości dla zalogowanych
+- Publikowanie ofert dla zalogowanych jako admin oraz komentarzy dla wszystkich zalogowanych
+- Admin może usówać komentarze (jeśli wymagania będą tego wymagać)
   
 ## Rozszerzone funkcjonalności
 
-- Edycja danych w profilu
-- Dodawanie osób do obserwowanych
+- Edycja informacji o domu, np ceny
+- Dodawanie ofert do obserwowanych
 
 ## Chmury
 
 - Baza danych
 - Backend
-- Forntend zapodawany przez NGINX
+- Frontend zapodawany przez NGINX
 
 ## Technologie
 
