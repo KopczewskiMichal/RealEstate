@@ -15,5 +15,4 @@ public class SimpleEndpoints {
     public String secured() {
         return "Hello, Secured!";
     }
-
 }
