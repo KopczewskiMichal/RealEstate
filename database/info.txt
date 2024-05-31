@@ -1,0 +1,1 @@
+docker compose obecnie stawia tylko bazę danych. Ten sposób ułatwia testowanie backendu.
