@@ -1,5 +1,6 @@
 package springServer.users;
-// TODO metoda zamiany na JSON oraz logika współpracy z bazą danych
+
+import net.minidev.json.JSONObject;
 
 public class User {
     private final String username;
@@ -11,6 +12,14 @@ public class User {
         this.email = email;
         this.profilePictureUrl = profilePictureUrl;
 
+    }
+
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("username", username);
+        jsonObject.put("email", email);
+        jsonObject.put("profilePictureUrl", profilePictureUrl);
+        return jsonObject;
     }
 
     @Override
