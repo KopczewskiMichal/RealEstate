@@ -1,8 +1,9 @@
-package SpringServer.testEndpoints.testEndpoints;
+package springServer.testEndpoints;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Deprecated
 @RestController
 public class SimpleEndpoints {
 

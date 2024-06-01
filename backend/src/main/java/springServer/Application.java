@@ -1,4 +1,4 @@
-package SpringServer;
+package springServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

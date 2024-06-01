@@ -14,6 +14,11 @@ Projekt z technologii chmurowych oraz bezpieczeństwa. Portal do handlu nierucho
 - Edycja informacji o domu, np ceny
 - Dodawanie ofert do obserwowanych
 
+## Integracja z oauth
+
+- Nie widać maili poszczególnych użytkowników
+- W ofercie zakupu/sprzedaży widać email wystawiającego - dla ułatwienia kontaktu.
+
 ## Chmury
 
 - Baza danych

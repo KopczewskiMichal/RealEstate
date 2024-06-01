@@ -1,4 +1,4 @@
-package SpringServer.databaseOperations.offers;
+package springServer.databaseOperations.offers;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -16,7 +16,7 @@ public class OffersController {
     @Value("${mongodb.uri}")
     private String mongoUri;
 
-    @Deprecated // ! metoda jest niebezpieczna w użytku.
+    @Deprecated // ! metoda jest bezsensowna
     @GetMapping("/check-db")
     public ResponseEntity<String> checkDb() {
         try (MongoClient mongoClient = MongoClients.create(mongoUri)) {
