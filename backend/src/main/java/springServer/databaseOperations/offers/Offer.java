@@ -7,7 +7,6 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import springServer.businessLogic.Place;
 import springServer.databaseOperations.CustomDatabaseException;
 
@@ -17,8 +16,8 @@ final class Offer {
     @Value("${mongodb.uri}")
     private String mongoUri;
 
-    private Place place;
-    private String authorEmail;
+    private final Place place;
+    private final String authorEmail;
 
     private final MongoClient mongoClient;
     private final MongoDatabase database;

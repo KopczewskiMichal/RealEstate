@@ -1,5 +1,7 @@
 package springServer.businessLogic;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.json.JSONObject;
 
 import java.time.LocalDate;
@@ -8,12 +10,20 @@ public final class Flat extends Place {
     private final int flatNumber;
     private final int floor;
 
-    public int getFloor() {
-        return floor;
-    }
-
-    public Flat(String street, int number, String city, int price, String postCode, LocalDate deadline, int size, int houseNumber, int flatNumber, int floor,  String authorId) {
-        super(street, number, city, price, postCode, deadline, size, houseNumber, authorId);
+    @JsonCreator
+    public Flat(
+            @JsonProperty("street") String street,
+            @JsonProperty("number") int number,
+            @JsonProperty("city") String city,
+            @JsonProperty("price") int price,
+            @JsonProperty("postCode") String postCode,
+            @JsonProperty("deadline") LocalDate deadline,
+            @JsonProperty("area") int size,
+            @JsonProperty("flatNumber") int flatNumber,
+            @JsonProperty("floor") int floor,
+            @JsonProperty("authorId") String authorId
+    ) {
+        super(street, number, city, price, postCode, deadline, size, authorId);
         this.flatNumber = flatNumber;
         this.floor = floor;
     }
@@ -23,6 +33,7 @@ public final class Flat extends Place {
         JSONObject jsonObject = super.toJson();
         jsonObject.put("flatNumber", flatNumber);
         jsonObject.put("floor", floor);
+        jsonObject.put("type", "flat");
         return jsonObject;
     }
 
