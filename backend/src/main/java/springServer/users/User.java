@@ -7,11 +7,14 @@ public class User {
     private final String email;
     private final String profilePictureUrl;
 
+    public String getEmail() {
+        return email;
+    }
+
     public User(String username, String email, String profilePictureUrl) {
         this.username = username;
         this.email = email;
         this.profilePictureUrl = profilePictureUrl;
-
     }
 
     public JSONObject toJson() {

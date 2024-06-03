@@ -1,8 +1,12 @@
 package springServer.businessLogic;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -11,7 +15,6 @@ import java.util.UUID;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
         property = "type"
 )
 @JsonSubTypes({
@@ -45,6 +48,13 @@ sealed abstract public class Place permits House, Flat {
 
     @JsonProperty("area")
     protected final int area;
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonProperty("description")
+    protected String description;
 
     @Override
     public String toString() {
@@ -90,6 +100,17 @@ sealed abstract public class Place permits House, Flat {
         return jsonObject;
     }
 
+    public static Place fromJson(JSONObject jsonObject) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        try {
+            return objectMapper.readValue(jsonObject.toString(), Place.class);
+        } catch (MismatchedInputException e) {
+            throw new IllegalArgumentException("JSON is missing required fields or has incorrect types: " + e.getMessage(), e);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while creating object from JSON: " + e.getMessage(), e);
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

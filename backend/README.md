@@ -2,7 +2,7 @@
 
 ## Sposób insertu do bazy
 
-- Sprawdzamy tylko czy jest oferta o podanym adresie oraz deadline większym od obecnego
+- Ufamy że obecnie nie ma tej oferty w systemie
 - Tylko zalogowani na jakąkolwiek rolę mogą dodawać ogłoszenia.
 
 ## Po logowaniu
