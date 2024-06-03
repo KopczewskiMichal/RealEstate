@@ -6,8 +6,8 @@ Projekt z technologii chmurowych oraz bezpieczeństwa. Portal do handlu nierucho
 
 - Możliwość przeglądania ofert dla wszystkich (również niezalogowanych) użytkowników
 - Mośliwość komentowania nieruchomości dla zalogowanych
-- Publikowanie ofert dla zalogowanych jako admin oraz komentarzy dla wszystkich zalogowanych
-- Admin może usówać komentarze (jeśli wymagania będą tego wymagać)
+- Publikowanie ofert dla oraz komentarzy dla wszystkich zalogowanych
+- Admin może usówać komentarze i oferty (jeśli wymagania będą tego wymagać)
   
 ## Rozszerzone funkcjonalności
 

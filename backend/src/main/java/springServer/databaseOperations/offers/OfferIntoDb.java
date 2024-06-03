@@ -36,24 +36,17 @@ final class OfferIntoDb {
         }
     }
 
-    public boolean isOfferInDatabase(JSONObject jsonObject) {
-        jsonObject.remove("creationDateTime"); // Nieistotne w rozumieniu metody equals
-        Document query = Document.parse(jsonObject.toString());
-        long count = collection.countDocuments(query);
-        return count > 0;
-    }
+//    public boolean isOfferInDatabase(JSONObject jsonObject) {
+//        jsonObject.remove("creationDateTime"); // Nieistotne w rozumieniu metody equals
+//        jsonObject.remove("offerId"); // Serwer generuje to przy tworzeniu oferty, więc nigdy w bazie nie będzie 2 takich samych
+//        Document query = Document.parse(jsonObject.toString());
+//        long count = collection.countDocuments(query);
+//        return count > 0;
+//    }
 
 
 
 
     void insertIntoDb () throws RuntimeException {
-        try {
-
-
-
-
-        } catch (Exception e) {
-             throw new CustomDatabaseException("Nie udało się nawiązać połączenia z bazą danych.", e.getCause());
-        }
     }
 }
