@@ -12,7 +12,7 @@ import springServer.databaseOperations.CustomDatabaseException;
 
 
 // * Z założenia obiekt tej klasy jest krótkotrwały, mamy nadzieję że baza nie padnie w trakcie wykonywania jego roboty
-final class Offer {
+final class OfferIntoDb {
     @Value("${mongodb.uri}")
     private String mongoUri;
 
@@ -23,7 +23,7 @@ final class Offer {
     private final MongoDatabase database;
     private final MongoCollection<Document> collection;
 
-    Offer(Place place, String authorEmail) throws CustomDatabaseException{
+    OfferIntoDb(Place place, String authorEmail) throws CustomDatabaseException{
         this.place = place;
         this.authorEmail = authorEmail;
         try {

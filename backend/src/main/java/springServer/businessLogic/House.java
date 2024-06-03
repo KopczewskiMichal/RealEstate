@@ -37,7 +37,6 @@ public final class House extends Place {
 
     @Override
     public String toString() {
-        return "Dom na działce o wielkości: " + this.lotSize + "\n" +
-                super.toString();
+        return this.toJson().toString();
     }
 }

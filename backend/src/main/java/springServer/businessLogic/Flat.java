@@ -8,6 +8,12 @@ import java.time.LocalDate;
 
 public final class Flat extends Place {
     private final int flatNumber;
+
+    @Override
+    public String toString() {
+        return this.toJson().toString();
+    }
+
     private final int floor;
 
     @JsonCreator
@@ -37,10 +43,4 @@ public final class Flat extends Place {
         return jsonObject;
     }
 
-    @Override
-    public String toString() {
-        return "Mieszkanie nr. " + this.flatNumber + "\n" +
-                "Piętro nr: " + this.floor + "\n" +
-                super.toString();
-    }
 }

@@ -32,9 +32,7 @@ public class JsonToPlaceConverter {
 
 
         JSONObject flatJsonObject = exampleFlat.toJson();
-        flatJsonObject.remove("creationDateTime");
         JSONObject houseJsonObject = exampleHouse.toJson();
-        houseJsonObject.remove("creationDateTime");
         try {
             Place flat = fromJson(flatJsonObject);
             System.out.println(flat);
