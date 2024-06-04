@@ -23,7 +23,7 @@ public class JsonToPlaceConverter {
                 80,
                 2,
                 3,
-                "https://example.com/flat1.jpg",
+                "https://www.instagram.com/p/C6n4e6Rq3vK/",
                 "Przestronne mieszkanie z widokiem na park."
         );
 
@@ -37,7 +37,7 @@ public class JsonToPlaceConverter {
                 LocalDate.of(2024, 8, 15),
                 450,
                 "80",
-                "sieeeeema",
+                "https://www.google.com/imgres?q=house&imgurl=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F106399%2Fpexels-photo-106399.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-binyaminmellish-106399.jpg%26fm%3Djpg&imgrefurl=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fhouse%2F&docid=w_edFuvJNI2ApM&tbnid=kdENxlNldMG6sM&vet=12ahUKEwiMtcOs6sGGAxWDB9sEHWFJF8oQM3oECB4QAA..i&w=5408&h=3605&hcb=2&ved=2ahUKEwiMtcOs6sGGAxWDB9sEHWFJF8oQM3oECB4QAA",
                 "Fajny taki domek",
                 1500
 

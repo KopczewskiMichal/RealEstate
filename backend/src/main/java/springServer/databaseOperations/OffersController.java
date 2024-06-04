@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ final class OffersController {
     private String mongoUri;
 
     @PostMapping("/add-offer")
-    public ResponseEntity<String> addOffer (@RequestBody String body) {
+    ResponseEntity<String> addOffer (@RequestBody String body) {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if (authentication != null && authentication.isAuthenticated() && authentication.getPrincipal() instanceof OAuth2User oauthUser) {
@@ -38,6 +39,18 @@ final class OffersController {
                 );
             }
         } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/all-offers")
+    ResponseEntity<String> allOffers() {
+        try {
+            OfferIntoDb myObj = new OfferIntoDb(mongoUri);
+            String jsonStrRes = myObj.getAllOffers();
+            return new ResponseEntity<>(jsonStrRes, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

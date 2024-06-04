@@ -51,4 +51,15 @@ final class OfferIntoDb {
             }
         }
     }
+
+    String getAllOffers() {
+        MongoCollection<Document> offersCollection = database.getCollection("Offers");
+
+        StringBuilder result = new StringBuilder();
+        for (Document doc : offersCollection.find()) {
+            result.append(doc.toJson()).append("\n");
+        }
+
+        return result.toString();
+    }
 }
