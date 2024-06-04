@@ -24,12 +24,14 @@ public final class Flat extends Place {
             @JsonProperty("price") int price,
             @JsonProperty("postCode") String postCode,
             @JsonProperty("deadline") LocalDate deadline,
+            @JsonProperty("authorId") String authorId,
             @JsonProperty("area") int size,
             @JsonProperty("flatNumber") int flatNumber,
             @JsonProperty("floor") int floor,
-            @JsonProperty("authorId") String authorId
+            @JsonProperty("imageUrl") String imageUrl,
+            @JsonProperty("description") String description
     ) {
-        super(street, number, city, price, postCode, deadline, size, authorId);
+        super(street, number, city, price, postCode, deadline, size, authorId, imageUrl, description);
         this.flatNumber = flatNumber;
         this.floor = floor;
     }

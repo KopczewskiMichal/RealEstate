@@ -19,10 +19,12 @@ public final class House extends Place {
             @JsonProperty("postCode") String postCode,
             @JsonProperty("deadline") LocalDate deadline,
             @JsonProperty("area") int size,
-            @JsonProperty("lotSize") int lotSize,
-            @JsonProperty("authorId") String authorId
+            @JsonProperty("authorId") String authorId,
+            @JsonProperty("imageUrl") String imageUrl,
+            @JsonProperty("description") String description,
+            @JsonProperty("lotSize") int lotSize
     ) {
-        super(street, number, city, price, postCode, deadline, size, authorId);
+        super(street, number, city, price, postCode, deadline, size, authorId, imageUrl, description);
         this.lotSize = lotSize;
     }
 

@@ -49,12 +49,11 @@ sealed abstract public class Place permits House, Flat {
     @JsonProperty("area")
     protected final int area;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     @JsonProperty("description")
     protected String description;
+
+    @JsonProperty("imageUrl")
+    protected String imageUrl;
 
     @Override
     public String toString() {
@@ -74,7 +73,9 @@ sealed abstract public class Place permits House, Flat {
             @JsonProperty("postCode") String postCode,
             @JsonProperty("deadline") LocalDate deadline,
             @JsonProperty("area") int area,
-            @JsonProperty("authorId") String authorId) {
+            @JsonProperty("authorId") String authorId,
+            @JsonProperty("imageUrl") String imageUrl,
+            @JsonProperty("description") String description) {
 
         this.street = street;
         this.number = number;
@@ -84,6 +85,8 @@ sealed abstract public class Place permits House, Flat {
         this.deadline = deadline;
         this.area = area;
         this.authorId = authorId;
+        this.imageUrl = imageUrl;
+        this.description = description;
     }
     public JSONObject toJson () {
         JSONObject jsonObject = new JSONObject();
@@ -97,6 +100,8 @@ sealed abstract public class Place permits House, Flat {
         jsonObject.put("deadline", deadline.toString());
         jsonObject.put("creationDateTime", creationDateTime.toString());
         jsonObject.put("area", area);
+        jsonObject.put("imageUrl", imageUrl);
+        jsonObject.put("description", description);
         return jsonObject;
     }
 

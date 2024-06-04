@@ -27,9 +27,7 @@ final class OffersController {
                 String email = oauthUser.getAttribute("email");
                 String profilePictureUrl = oauthUser.getAttribute("picture");
                 User actUser = new User(username, email, profilePictureUrl);
-                System.out.println(actUser);
                 Place place = Place.fromJson(new JSONObject(body));
-                System.out.println(place);
                 OfferIntoDb offerIntoDb = new OfferIntoDb(mongoUri);
                 offerIntoDb.insertOfferIntoDb(place, actUser);
                 return new ResponseEntity<>(HttpStatus.CREATED);

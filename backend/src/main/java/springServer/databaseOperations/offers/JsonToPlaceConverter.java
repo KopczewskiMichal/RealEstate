@@ -12,9 +12,36 @@ public class JsonToPlaceConverter {
 
 
     public static void main(String[] args) {
-        Flat exampleFlat = new Flat("Fiołkowa", 3, "Bydgoszcz", 900_000, "50-333", LocalDate.of(2026, 5, 8), 40, 5, 44, "444");
-        House exampleHouse = new House("Fiołkowa", 3, "Bydgoszcz", 900_000, "50-333", LocalDate.of(2026, 5, 8), 40, 50, "Sieeema");
+        Flat exampleFlat = new Flat(
+                "ul. Główna 123",
+                5,
+                "Warszawa",
+                250000,
+                "01-234",
+                LocalDate.of(2024, 6, 30),
+                "user123",
+                80,
+                2,
+                3,
+                "https://example.com/flat1.jpg",
+                "Przestronne mieszkanie z widokiem na park."
+        );
 
+
+        House exampleHouse = new House(
+                "ul. Fiołkowa 123",
+                56,
+                "Zielona Góra",
+                1_000_000,
+                "01-234",
+                LocalDate.of(2024, 8, 15),
+                450,
+                "80",
+                "sieeeeema",
+                "Fajny taki domek",
+                1500
+
+        );
 
         JSONObject flatJsonObject = exampleFlat.toJson();
         JSONObject houseJsonObject = exampleHouse.toJson();
