@@ -9,13 +9,13 @@ import springServer.businessLogic.Place;
 import springServer.users.User;
 import com.mongodb.client.model.Filters;
 
+import java.util.Date;
+
 
 // * Z założenia obiekt tej klasy jest krótkotrwały, mamy nadzieję że baza nie padnie w trakciejego istnienia
 final class OfferIntoDb {
     // * Nie da się pobrać mongouri za pomocą @Value spoza komponentu Springa
-
     private User user;
-
     private final MongoClient mongoClient;
     private final MongoDatabase database;
 
@@ -56,10 +56,13 @@ final class OfferIntoDb {
         MongoCollection<Document> offersCollection = database.getCollection("Offers");
 
         StringBuilder result = new StringBuilder();
-        for (Document doc : offersCollection.find()) {
+        Date now = new Date();
+        for (Document doc : offersCollection.find(Filters.lt("deadline", now.toString()))) {
             result.append(doc.toJson()).append("\n");
         }
-
+        if (result.isEmpty()) {
+            result.append("No offers found");
+        }
         return result.toString();
     }
 }
