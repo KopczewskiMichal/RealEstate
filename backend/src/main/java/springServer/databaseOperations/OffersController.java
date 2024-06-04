@@ -54,4 +54,23 @@ final class OffersController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/my-offers")
+    ResponseEntity<String> myOffers() {
+        try {
+            OfferIntoDb myObj = new OfferIntoDb(mongoUri);
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication != null && authentication.isAuthenticated() && authentication.getPrincipal() instanceof OAuth2User oauthUser) {
+                String email = oauthUser.getAttribute("email");
+                String result = myObj.getMyOffers(email);
+                return new ResponseEntity<>(result, HttpStatus.OK);
+            } else { // Nigdy się nie wykona - endpont jest zabezpieczony
+                return new ResponseEntity<>("User is not logged in", HttpStatus.UNAUTHORIZED);
+            }
+        } catch (RuntimeException e) {
+          e.printStackTrace();
+          return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }

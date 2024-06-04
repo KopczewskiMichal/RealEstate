@@ -11,6 +11,8 @@ import com.mongodb.client.model.Filters;
 
 import java.util.Date;
 
+import static com.mongodb.client.model.Filters.eq;
+
 
 // * Z założenia obiekt tej klasy jest krótkotrwały, mamy nadzieję że baza nie padnie w trakciejego istnienia
 final class OfferIntoDb {
@@ -41,13 +43,13 @@ final class OfferIntoDb {
 
     private void registerOrUpdateUserIfNeeded() {
         MongoCollection<Document> usersCollection = database.getCollection("Users");
-        Document existingUser = usersCollection.find(Filters.eq("email", this.user.getEmail())).first();
+        Document existingUser = usersCollection.find(eq("email", this.user.getEmail())).first();
         Document newUser = Document.parse(this.user.toJson().toString());
         if (existingUser == null) {
             usersCollection.insertOne(newUser);
         } else {
             if (!existingUser.equals(newUser)) {
-                usersCollection.replaceOne(Filters.eq("email", this.user.getEmail()), newUser);
+                usersCollection.replaceOne(eq("email", this.user.getEmail()), newUser);
             }
         }
     }
@@ -58,6 +60,18 @@ final class OfferIntoDb {
         StringBuilder result = new StringBuilder();
         Date now = new Date();
         for (Document doc : offersCollection.find(Filters.lt("deadline", now.toString()))) {
+            result.append(doc.toJson()).append("\n");
+        }
+        if (result.isEmpty()) {
+            result.append("No offers found");
+        }
+        return result.toString();
+    }
+
+    String getMyOffers(String userEmail) {
+        MongoCollection<Document> offersCollection = database.getCollection("Offers");
+        StringBuilder result = new StringBuilder();
+        for (Document doc : offersCollection.find(eq("authorEmail", userEmail))) {
             result.append(doc.toJson()).append("\n");
         }
         if (result.isEmpty()) {

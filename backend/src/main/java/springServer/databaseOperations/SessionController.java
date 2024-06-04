@@ -10,6 +10,7 @@ import springServer.users.User;
 @RestController
 public class SessionController {
 
+    @Deprecated
     @GetMapping("/check-session")
     public String checkSession () {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -19,7 +20,7 @@ public class SessionController {
             String profilePictureUrl = oauthUser.getAttribute("picture");
             User actUser = new User(username, email, profilePictureUrl);
 
-            return actUser.toString() + "\nhashCode:  " + actUser.hashCode();
+            return actUser + "\nhashCode:  " + actUser.hashCode();
         } else {
             return "User is not logged in";
         }

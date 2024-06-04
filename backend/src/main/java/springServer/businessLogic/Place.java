@@ -24,8 +24,8 @@ import java.util.UUID;
 sealed abstract public class Place permits House, Flat {
     @JsonProperty("offerId")
     protected final String offerId = UUID.randomUUID().toString();
-    @JsonProperty("authorId")
-    protected final String authorId;
+    @JsonProperty("authorEmail")
+    protected final String authorEmail;
 
     @JsonProperty("street")
     protected final String street;
@@ -73,7 +73,7 @@ sealed abstract public class Place permits House, Flat {
             @JsonProperty("postCode") String postCode,
             @JsonProperty("deadline") LocalDate deadline,
             @JsonProperty("area") int area,
-            @JsonProperty("authorId") String authorId,
+            @JsonProperty("authorEmail") String authorEmail,
             @JsonProperty("imageUrl") String imageUrl,
             @JsonProperty("description") String description) {
 
@@ -84,14 +84,14 @@ sealed abstract public class Place permits House, Flat {
         this.postCode = postCode;
         this.deadline = deadline;
         this.area = area;
-        this.authorId = authorId;
+        this.authorEmail = authorEmail;
         this.imageUrl = imageUrl;
         this.description = description;
     }
     public JSONObject toJson () {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("offerId", offerId);
-        jsonObject.put("authorId", authorId);
+        jsonObject.put("authorEmail", authorEmail);
         jsonObject.put("street", street);
         jsonObject.put("number", number);
         jsonObject.put("city", city);
@@ -122,11 +122,11 @@ sealed abstract public class Place permits House, Flat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Place place = (Place) o;
-        return number == place.number && price == place.price && area == place.area && Objects.equals(authorId, place.authorId) && Objects.equals(street, place.street) && Objects.equals(city, place.city) && Objects.equals(postCode, place.postCode) && Objects.equals(offerId, place.offerId) && Objects.equals(creationDateTime, place.creationDateTime);
+        return number == place.number && price == place.price && area == place.area && Objects.equals(authorEmail, place.authorEmail) && Objects.equals(street, place.street) && Objects.equals(city, place.city) && Objects.equals(postCode, place.postCode) && Objects.equals(offerId, place.offerId) && Objects.equals(creationDateTime, place.creationDateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorId, street, number, city, price, postCode, area, offerId, creationDateTime);
+        return Objects.hash(authorEmail, street, number, city, price, postCode, area, offerId, creationDateTime);
     }
 }
