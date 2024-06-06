@@ -4,15 +4,21 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import springServer.businessLogic.Place;
 import springServer.users.User;
 import com.mongodb.client.model.Filters;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
+
 
 
 // * Z założenia obiekt tej klasy jest krótkotrwały, mamy nadzieję że baza nie padnie w trakciejego istnienia
@@ -35,7 +41,6 @@ final class OfferIntoDb {
             Document newOffer = Document.parse(place.toJson().toString());
             offersCollection.insertOne(newOffer);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new CustomDatabaseException("Nie udało się dodać oferty do bazy", e.getCause());
         } finally {
             this.mongoClient.close();
@@ -56,33 +61,58 @@ final class OfferIntoDb {
     }
 
     String getAllOffers() {
-        MongoCollection<Document> offersCollection = database.getCollection("Offers");
-
-        StringBuilder result = new StringBuilder();
-        Date now = new Date();
-        for (Document doc : offersCollection.find(Filters.lt("deadline", now.toString()))) {
-            result.append(doc.toJson()).append("\n");
+        try {
+            MongoCollection<Document> offersCollection = database.getCollection("Offers");
+            StringBuilder result = new StringBuilder();
+            Date now = new Date();
+            for (Document doc : offersCollection.find(Filters.lt("deadline", now.toString()))) {
+                result.append(doc.toJson()).append("\n");
+            }
+            if (result.isEmpty()) {
+                result.append("No offers found");
+            }
+            return result.toString();
+        } finally {
+            mongoClient.close();
         }
-        if (result.isEmpty()) {
-            result.append("No offers found");
-        }
-        return result.toString();
     }
 
     String getMyOffers(String userEmail) {
-        MongoCollection<Document> offersCollection = database.getCollection("Offers");
-        StringBuilder result = new StringBuilder();
-        for (Document doc : offersCollection.find(eq("authorEmail", userEmail))) {
-            result.append(doc.toJson()).append("\n");
+        try {
+            MongoCollection<Document> offersCollection = database.getCollection("Offers");
+            StringBuilder result = new StringBuilder();
+            for (Document doc : offersCollection.find(eq("authorEmail", userEmail))) {
+                result.append(doc.toJson()).append("\n");
+            }
+            if (result.isEmpty()) {
+                result.append("No offers found");
+            }
+            return result.toString();
+        } finally {
+            mongoClient.close();
         }
-        if (result.isEmpty()) {
-            result.append("No offers found");
-        }
-        return result.toString();
     }
 
-    void deleteOffer(String offerId) {
-        MongoCollection<Document> usersCollection = database.getCollection("Offers");
-        DeleteResult deletedOffer = usersCollection.deleteOne(eq("offerId", offerId));
+    void deleteOfferAsAdmin(String offerId) {
+        try {
+            MongoCollection<Document> usersCollection = database.getCollection("Offers");
+            usersCollection.deleteOne(eq("offerId", offerId));
+        } finally {
+            mongoClient.close();
+        }
+    }
+
+    void deleteOwnOffer(String offerId) {
+        try {
+            OAuth2User oauthUser = (OAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String email = oauthUser.getAttribute("email");
+            MongoCollection<Document> usersCollection = database.getCollection("Offers");
+            UpdateResult updateResult = usersCollection.updateOne(
+                    and(eq("offerId", offerId), eq("authorEmail", email)),
+                    set("deadline", LocalDate.now().toString()));
+            System.out.println(updateResult);
+        } finally {
+            mongoClient.close();
+        }
     }
 }

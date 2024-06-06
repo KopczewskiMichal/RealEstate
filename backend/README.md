@@ -14,10 +14,15 @@
 - [x] Dodanie oferty
 - [x] Pobranie ofert (dla wszystkich)
 - [x] Pobranie wszystkich również historycznych stworzonych przez użytkownika, po jego danych
-- [ ] Przedwczesne zakończenie (positive/negatve jako requestParam. Możliwe tylko dla twórcy, sprawdzenie po bazie danych. Zapisanie do bazy czy się udało czy nie)
-- [ ] Zakończenie aukcji nie własnej (dla admina)
+- [ ] Przedwczesne zakończenie własnej. Nie interesuje nas czy się udało sprzedać czy nie
+- [x] Zakończenie aukcji nie własnej (dla admina)
 - [ ] Modyfikacj aukcji robić mi się nie chce, ale jak zostanie czas to zrobię.
 
 ## Ważne technologicznie
 
-- Sprawdzenie admina przez uproszczoną funkcję, pytając baze kim jest. Wolne ale w miare bezpieczne. Używać tylko jak potrzeba!
+- Sprawdzenie admina przez uproszczony interface, pytając baze kim jest. Wolne ale w miare bezpieczne. Używać tylko jak potrzeba!
+
+## Usówanie ogłoszeń
+
+- Jak admin usówa ogłoszenie znaczy że prawdopodobnie jest nieodpowiednie, dlatego nie chcemy go w bazie
+- Użytkownik usówając ogłoszenie ma powody ale zostawiamy w historii.

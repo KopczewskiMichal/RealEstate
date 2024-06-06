@@ -83,7 +83,7 @@ final class OffersController implements PseudoRoles {
         } else {
             try {
                 OfferIntoDb myObj = new OfferIntoDb(mongoUri);
-                myObj.deleteOffer(offerId);
+                myObj.deleteOfferAsAdmin(offerId);
                 return new ResponseEntity<>(HttpStatus.ACCEPTED);
             } catch (RuntimeException e) {
                 return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -91,6 +91,14 @@ final class OffersController implements PseudoRoles {
         }
     }
 
+    @DeleteMapping("/delete-own-offer")
+    ResponseEntity<String> deleteOwnOffer(@RequestParam String offerId) {
+        OfferIntoDb myObj = new OfferIntoDb(mongoUri);
+        myObj.deleteOwnOffer(offerId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Deprecated
     @GetMapping("/am-i-admin")
     ResponseEntity<String> amIAdmin() {
         if (isAdmin()) {
