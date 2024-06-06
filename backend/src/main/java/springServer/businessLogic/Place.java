@@ -63,9 +63,11 @@ sealed abstract public class Place permits House, Flat {
     @JsonProperty("creationDateTime")
     protected LocalDateTime creationDateTime = LocalDateTime.now();
 
-    // TODO walidacja czy deadline jest czasem przyszłym
+    @JsonProperty("soldStatus")
+    protected boolean soldStatus = false;
+
     @JsonCreator
-    public Place(
+    public Place (
             @JsonProperty("street") String street,
             @JsonProperty("number") int number,
             @JsonProperty("city") String city,
@@ -102,6 +104,7 @@ sealed abstract public class Place permits House, Flat {
         jsonObject.put("area", area);
         jsonObject.put("imageUrl", imageUrl);
         jsonObject.put("description", description);
+        jsonObject.put("soldStatus", soldStatus);
         return jsonObject;
     }
 

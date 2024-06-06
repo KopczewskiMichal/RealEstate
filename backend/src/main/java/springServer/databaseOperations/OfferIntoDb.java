@@ -4,6 +4,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 import springServer.businessLogic.Place;
 import springServer.users.User;
@@ -78,5 +79,10 @@ final class OfferIntoDb {
             result.append("No offers found");
         }
         return result.toString();
+    }
+
+    void deleteOffer(String offerId) {
+        MongoCollection<Document> usersCollection = database.getCollection("Offers");
+        DeleteResult deletedOffer = usersCollection.deleteOne(eq("offerId", offerId));
     }
 }

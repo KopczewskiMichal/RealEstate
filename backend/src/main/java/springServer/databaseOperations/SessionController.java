@@ -20,7 +20,8 @@ public class SessionController {
             String profilePictureUrl = oauthUser.getAttribute("picture");
             User actUser = new User(username, email, profilePictureUrl);
 
-            return actUser + "\nhashCode:  " + actUser.hashCode();
+//            return actUser + "\nhashCode:  " + actUser.hashCode();
+            return oauthUser.toString();
         } else {
             return "User is not logged in";
         }

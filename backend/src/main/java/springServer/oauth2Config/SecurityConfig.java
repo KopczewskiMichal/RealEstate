@@ -1,4 +1,4 @@
-package springServer;
+package springServer.oauth2Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,16 +15,16 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain configure(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/").permitAll();
                     auth.requestMatchers("/all-offers").permitAll();
+//                    auth.requestMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated();
                     auth.anyRequest().authenticated();
                 })
                 .oauth2Login(withDefaults())
                 .formLogin(withDefaults())
                 .build();
     }
-
 }
