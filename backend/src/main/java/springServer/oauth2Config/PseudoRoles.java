@@ -4,11 +4,9 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import org.json.JSONObject;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.bson.Document;
-import springServer.users.User;
 
 
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public interface PseudoRoles {
         System.out.println(email);
         List<String> roles = getRolesFromDb(email);
         System.out.println(roles);
-        return roles.contains("ADMIN");
+        return roles.contains(Roles.ADMIN.toString());
     }
 
     private List<String> getRolesFromDb(String email) {

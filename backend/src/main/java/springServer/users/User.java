@@ -1,28 +1,29 @@
 package springServer.users;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import net.minidev.json.JSONObject;
 import springServer.oauth2Config.Roles;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
+    @JsonProperty("username")
     private final String username;
+    @JsonProperty("email")
     private final String email;
+    @JsonProperty("profilePictureUrl")
     private final String profilePictureUrl;
-
+    @JsonProperty("roles")
     private final List<Roles> roles;
 
     public List<Roles> getRoles() {
         return roles;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public User(String username, String email, String profilePictureUrl) {
@@ -30,7 +31,21 @@ public class User {
         this.email = email;
         this.profilePictureUrl = profilePictureUrl;
         this.roles = new ArrayList<>();
-        this.roles.add(Roles.USER);
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public User(
+            @JsonProperty("username") String username,
+            @JsonProperty("email") String email,
+            @JsonProperty("profilePictureUrl") String profilePictureUrl,
+            @JsonProperty("roles") List<Roles> roles) {
+        this.username = username;
+        this.email = email;
+        this.profilePictureUrl = profilePictureUrl;
+        this.roles = roles;
     }
 
     public JSONObject toJson() {
@@ -48,7 +63,7 @@ public class User {
         if (o == null) return false;
         if (this.getClass() != o.getClass()) return false;
         User user = (User) o;
-        return email == user.email;
+        return email.equals(user.email);
     }
 
     @Override

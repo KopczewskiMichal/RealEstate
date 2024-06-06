@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -21,7 +22,7 @@ import java.util.UUID;
         @JsonSubTypes.Type(value = Flat.class, name = "flat"),
         @JsonSubTypes.Type(value = House.class, name = "house")
 })
-sealed abstract public class Place permits House, Flat {
+sealed abstract public class Place implements Serializable permits House, Flat {
     @JsonProperty("offerId")
     protected final String offerId = UUID.randomUUID().toString();
     @JsonProperty("authorEmail")
