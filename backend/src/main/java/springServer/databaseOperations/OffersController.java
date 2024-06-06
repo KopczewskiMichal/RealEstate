@@ -91,7 +91,7 @@ final class OffersController implements PseudoRoles {
         }
     }
 
-    @GetMapping("/am-I-admin")
+    @GetMapping("/am-i-admin")
     ResponseEntity<String> amIAdmin() {
         if (isAdmin()) {
             return new ResponseEntity<>("You are admin!!!", HttpStatus.OK);

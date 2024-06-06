@@ -83,6 +83,7 @@ public class User implements Serializable {
     }
 
     public static User fromJson(org.json.JSONObject jsonObject) {
+        jsonObject.remove("_id");
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         try {
