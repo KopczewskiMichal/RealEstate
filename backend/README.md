@@ -14,9 +14,9 @@
 - [x] Dodanie oferty
 - [x] Pobranie ofert (dla wszystkich)
 - [x] Pobranie wszystkich również historycznych stworzonych przez użytkownika, po jego danych
-- [ ] Przedwczesne zakończenie własnej. Nie interesuje nas czy się udało sprzedać czy nie
+- [x] Przedwczesne zakończenie własnej. Nie interesuje nas czy się udało sprzedać czy nie
 - [x] Zakończenie aukcji nie własnej (dla admina)
-- [ ] Modyfikacj aukcji robić mi się nie chce, ale jak zostanie czas to zrobię.
+- [ ] Endpoint all-offers dla niezalogowanych pobiera wszystkie aktualne aukcje a dla zalogowanych aktualne i nieswoje.
 
 ## Ważne technologicznie
 

@@ -1,5 +1,6 @@
 package springServer.databaseOperations;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -49,9 +50,16 @@ final class OffersController implements PseudoRoles {
     @GetMapping("/all-offers")
     ResponseEntity<String> allOffers() {
         try {
-            OfferIntoDb myObj = new OfferIntoDb(mongoUri);
-            String jsonStrRes = myObj.getAllOffers();
-            return new ResponseEntity<>(jsonStrRes, HttpStatus.OK);
+            final OfferIntoDb myObj = new OfferIntoDb(mongoUri);
+            final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            JSONArray jsonRes;
+            if (authentication != null && authentication.isAuthenticated() && authentication.getPrincipal() instanceof OAuth2User oauthUser) {
+                String email = oauthUser.getAttribute("email");
+                jsonRes = myObj.getAllOffers(email);
+            } else {
+                jsonRes = myObj.getAllOffers(null);
+            }
+            return new ResponseEntity<>(jsonRes.toString(), HttpStatus.OK);
         } catch (RuntimeException e) {
             e.printStackTrace();
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

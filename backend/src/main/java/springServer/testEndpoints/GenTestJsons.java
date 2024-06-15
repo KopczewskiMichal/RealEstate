@@ -11,7 +11,8 @@ import java.util.List;
 @Deprecated
 public class GenTestJsons {
     public static void main(String[] args) {
-        testParseUser();
+//        testParseUser();
+        genFlatJson();
     }
 
     private static void testParseUser () {

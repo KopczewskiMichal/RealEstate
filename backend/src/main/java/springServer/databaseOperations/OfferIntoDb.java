@@ -1,11 +1,10 @@
 package springServer.databaseOperations;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import springServer.businessLogic.Place;
@@ -14,6 +13,8 @@ import com.mongodb.client.model.Filters;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
@@ -60,18 +61,36 @@ final class OfferIntoDb {
         }
     }
 
-    String getAllOffers() {
+    JSONArray getAllOffers(String userEmail) {
+        // * Dbamy aby w głownym widoku nie widzieć własnych aukcji
         try {
             MongoCollection<Document> offersCollection = database.getCollection("Offers");
-            StringBuilder result = new StringBuilder();
-            Date now = new Date();
-            for (Document doc : offersCollection.find(Filters.lt("deadline", now.toString()))) {
-                result.append(doc.toJson()).append("\n");
+            List<Document> pipeline = new ArrayList<>();
+            Date date = new Date();
+
+            Document matchStage = new Document("deadline", new Document("$lt", date.toString()));
+            if (userEmail != null) {
+                matchStage.append("authorEmail", new Document("$ne", userEmail));
             }
-            if (result.isEmpty()) {
-                result.append("No offers found");
+
+            pipeline.add(new Document("$match", matchStage));
+
+            pipeline.add(new Document("$lookup",
+                    new Document("from", "Users")
+                            .append("localField", "authorEmail")
+                            .append("foreignField", "email")
+                            .append("as", "userInfo")
+            ));
+            // $unwind do rozpakowania tablicy userInfo
+            pipeline.add(new Document("$unwind", "$userInfo"));
+
+            AggregateIterable<Document> aggregateResult = offersCollection.aggregate(pipeline);
+            JSONArray resJSON = new JSONArray();
+            for (Document doc : aggregateResult) {
+                JSONObject jsonObject = new JSONObject(doc.toJson());
+                resJSON.put(jsonObject);
             }
-            return result.toString();
+            return resJSON;
         } finally {
             mongoClient.close();
         }
