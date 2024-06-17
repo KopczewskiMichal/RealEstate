@@ -16,7 +16,7 @@ export default function MainPage () {
     }).catch((err) => {
       console.error(err.getMessage);
     }).finally(() => {
-      console.log("Wykonano próbę pobrania danych z api")
+      console.log("Wykonano próbę pobrania danych z api, sprawdź czy serwer i baza stoją.")
     });
   };
 
