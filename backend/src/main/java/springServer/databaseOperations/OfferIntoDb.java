@@ -9,7 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import springServer.businessLogic.Place;
 import springServer.users.User;
-import com.mongodb.client.model.Filters;
 
 import java.time.LocalDate;
 import java.util.Date;

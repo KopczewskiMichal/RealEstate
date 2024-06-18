@@ -6,22 +6,12 @@ export default function Login() {
   const navigate = useNavigate();
   const [isLoggedin, setIsLoggedin] = useState(false);
 
-  const handleClick = () => {
-    const callbackUrl = `${window.location.origin}/login`;
-    const googleClientId = "1016855152014-5efd9d35qavhn090l98b810hhd3ijdsf.apps.googleusercontent.com";
-    const targetUrl = `https://accounts.google.com/o/oauth2/auth?redirect_uri=${encodeURIComponent(
-      callbackUrl
-    )}&response_type=token&client_id=${googleClientId}&scope=openid%20email%20profile`;
-    window.location.href = targetUrl;
-  };
-
   useEffect(() => {
-    const accessTokenRegex = /access_token=([^&]+)/;
-    const isMatch = window.location.href.match(accessTokenRegex);
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
 
-    if (isMatch) {
-      const accessToken = isMatch[1];
-      Cookies.set("access_token", accessToken);
+    if (token) {
+      Cookies.set("jwt", token);
       setIsLoggedin(true);
     }
   }, []);
@@ -32,12 +22,17 @@ export default function Login() {
     }
   }, [isLoggedin, navigate]);
 
+  const handleLogin = () => {
+    // window.location.href = "/oauth2/authorization/google";
+    window.location.href = "http://localhost:3001/login";
+  };
+
   return (
     <div className="root">
       <div>
         <h1>Log in with Google</h1>
         <div className="btn-container">
-          <button className="btn btn-primary" onClick={handleClick}>
+          <button className="btn btn-primary" onClick={handleLogin}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 326667 333333"
@@ -69,7 +64,6 @@ export default function Login() {
             Log in with Google
           </button>
         </div>
-        <p> {window.location.origin}</p>
       </div>
     </div>
   );
