@@ -1,7 +1,7 @@
 import logo from './../../logo.svg';
 import './../../App.css';
 
-import axios from "axios";
+import axios from "./../../axiosConfig";
 import React, { useEffect, useState} from "react";
 
 
@@ -22,8 +22,48 @@ export default function MainPage () {
 
   useEffect(() => {
     console.log("Siema")
+    saveTokensToCookies()
     getOffers();
   }, []);
+
+  const setCookie = (name, value, days) => {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  };
+
+  const extractHashParams = () => {
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    return {
+      accessToken: params.get('access_token'),
+      tokenType: params.get('token_type'),
+      expiresIn: params.get('expires_in'),
+      scope: params.get('scope'),
+      authUser: params.get('authuser'),
+      prompt: params.get('prompt')
+    };
+  };
+  const saveTokensToCookies = () => {
+    const params = extractHashParams();
+    if (params.accessToken) {
+      setCookie('access_token', params.accessToken, params.expiresIn / 86400); // expires_in is in seconds
+    }
+    if (params.tokenType) {
+      setCookie('token_type', params.tokenType, params.expiresIn / 86400);
+    }
+    if (params.scope) {
+      setCookie('scope', params.scope, params.expiresIn / 86400);
+    }
+    if (params.authUser) {
+      setCookie('authuser', params.authUser, params.expiresIn / 86400);
+    }
+    if (params.prompt) {
+      setCookie('prompt', params.prompt, params.expiresIn / 86400);
+    }
+  };
+  
 
   return (
     <div className="App">
