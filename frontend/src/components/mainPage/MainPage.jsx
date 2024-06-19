@@ -10,17 +10,18 @@ export default function MainPage () {
   const [offers, setOffers] = useState([]);
 
   const getOffers = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/all-offers`).then((res) => {
-      setOffers(res.data);
-      console.log(offers);
+    axios.get(`${process.env.REACT_APP_API_URL}/secured`).then((res) => {
+      // setOffers(res.data);
+      console.log(res.data);
     }).catch((err) => {
       console.error(err.getMessage);
+      // console.log("Wykonano próbę pobrania danych z api, sprawdź czy serwer i baza stoją.")
     }).finally(() => {
-      console.log("Wykonano próbę pobrania danych z api, sprawdź czy serwer i baza stoją.")
     });
   };
 
   useEffect(() => {
+    console.log("Siema")
     getOffers();
   }, []);
 
