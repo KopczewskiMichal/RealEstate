@@ -1,28 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { getToken, decodeToken, removeToken } from './../../auth';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function UserProfilePage () {
   const [user, setUser] = useState(null);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
-  useEffect(() => {
+  const [offers, setOffers] = useState([]);
+
+  const getOffers = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/secured`).then((res) => {
+      // setOffers(res.data);
+      console.log(res.data);
+    }).catch((err) => {
+      console.error(err.getMessage);
+      // console.log("Wykonano próbę pobrania danych z api, sprawdź czy serwer i baza stoją.")
+    }).finally(() => {
+    });
+  };
+
+  const handleLogin = () => {
     const token = getToken();
     if (token) {
       const userData = decodeToken();
       if (userData) {
         setUser(userData);
       } else {
-        history.push('/');
+        navigate.push('/');
       }
     } else {
-      history.push('/');
+      navigate.push('/');
     }
-  }, [history]);
+  }
+
+  useEffect(() => {
+    handleLogin();
+    getOffers();
+  }, []);
 
   const handleLogout = () => {
     removeToken();
-    history.push('/');
+    navigate.push('/');
   };
 
   if (!user) return null;
