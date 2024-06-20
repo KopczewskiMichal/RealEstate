@@ -29,15 +29,16 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/").permitAll();
-
+                    auth.requestMatchers("/error").permitAll();
                     auth.requestMatchers("/all-offers").permitAll();
-//                    auth.requestMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated();
                     auth.anyRequest().authenticated();
                 })
                 .oauth2Login(oauth2 -> oauth2
                         .defaultSuccessUrl("/loginSuccess", true)
                 )
-
+                .sessionManagement(session -> session
+                        .sessionFixation().none()
+                )
                 .build();
     }
 

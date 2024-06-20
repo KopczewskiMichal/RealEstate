@@ -6,23 +6,24 @@ const getCookie = (name) => {
   if (parts.length === 2) return parts.pop().split(';').shift();
 };
 
-const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    // 'Content-Type': 'application/json',
-    // Dodaj tutaj inne domyślne nagłówki
-  }
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL, // Ustaw bazowy URL API
 });
 
-// Możesz dodać interceptor do dodawania nagłówków do każdego requesta
-instance.interceptors.request.use((config) => {
-  const token = getCookie('access_token'); // funkcja do pobierania tokena z ciasteczka
-  if (token) {
-    config.headers['Authorization'] = `Bearer ${token}`;
+// Add a request interceptor
+axiosInstance.interceptors.request.use(
+  (config) => {
+      const jsessionId = getCookie('JSESSIONID');
+      if (jsessionId) {
+          config.headers['JSESSIONID'] = jsessionId;
+      }
+      return config;
+  },
+  (error) => {
+      return Promise.reject(error);
   }
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+);
 
-export default instance;
+
+
+export default axiosInstance;

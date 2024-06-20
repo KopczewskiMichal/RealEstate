@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getToken, decodeToken, removeToken } from './../../auth';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom'; // Dodane użycie useParams
+import axios from '../../axiosConfig';
 
-export default function UserProfilePage () {
+export default function UserProfilePage() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const params = useParams(); // Zainicjowanie używania parametrów
 
   const [offers, setOffers] = useState([]);
 
@@ -27,12 +28,16 @@ export default function UserProfilePage () {
       if (userData) {
         setUser(userData);
       } else {
-        navigate.push('/');
+        navigate('/');
       }
+    } else if (params.token) { // Sprawdzenie, czy istnieje parametr 'token' w URL
+      const tokenValue = params.token;
+      document.cookie = `token=${tokenValue}; path=/; max-age=86400`; // Ustawienie ciasteczka na 24h
+      navigate('/profile');
     } else {
-      navigate.push('/');
+      navigate('/login');
     }
-  }
+  };
 
   useEffect(() => {
     handleLogin();
@@ -41,7 +46,7 @@ export default function UserProfilePage () {
 
   const handleLogout = () => {
     removeToken();
-    navigate.push('/');
+    navigate('/login');
   };
 
   if (!user) return null;
@@ -54,5 +59,4 @@ export default function UserProfilePage () {
       <button onClick={handleLogout}>Log Out</button>
     </div>
   );
-};
-
+}
