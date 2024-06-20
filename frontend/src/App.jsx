@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from './components/mainPage/MainPage.jsx';
-import Login from "./components/loginPage/LoginPage.jsx";
-import ProfilePage from "./components/ProfilePage.jsx/ProfilePage.jsx";
+import UserProfilePage from "./components/UserProfilePage/UserProfilePage";
 
 function App() {
   return (
@@ -9,16 +7,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-          path='/'
-          element={<MainPage />}
-          />
-          <Route
-          path='/login'
-          element={<Login />}
-          />
-          <Route
           path='/profile'
-          element={<ProfilePage />}
+          element={<UserProfilePage/>}
           />
         </Routes>
       </BrowserRouter>
