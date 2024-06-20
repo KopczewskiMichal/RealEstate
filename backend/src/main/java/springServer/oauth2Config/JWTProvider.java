@@ -49,7 +49,6 @@ public class JWTProvider {
 
         // Weryfikacja tokena i wypisanie dla debugowania
         DecodedJWT decodedJWT = verifyToken(sign);
-        System.out.println("Verified token: " + decodedJWT);
         System.out.println("Secret key: " + secretKey);
 
         return sign;

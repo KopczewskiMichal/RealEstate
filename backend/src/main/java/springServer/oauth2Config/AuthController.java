@@ -20,7 +20,7 @@ public class AuthController {
     public String loginSuccess(@AuthenticationPrincipal OAuth2User oAuth2User) {
 
         String token = jwtTokenProvider.createToken(oAuth2User);
-        return "Wygenerowany token: " + token;
+        return "Wygenerowany token:\n" + token;
     }
 }
 
