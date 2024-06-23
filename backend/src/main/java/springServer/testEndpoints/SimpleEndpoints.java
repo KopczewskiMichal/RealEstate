@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@Deprecated
 @RestController
 public class SimpleEndpoints {
 
