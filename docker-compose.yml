@@ -1,0 +1,33 @@
+# version: '3.8'
+
+services:
+  backend:
+    # image: mkopczewski/backend
+    build: ./api
+    container_name: backend-app
+    ports:
+      - "3000:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-storage:/data/db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  mongo-storage:
+    driver: local
