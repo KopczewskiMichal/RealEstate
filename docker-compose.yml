@@ -1,8 +1,5 @@
-# version: '3.8'
-
 services:
   backend:
-    # image: mkopczewski/backend
     build: ./api
     container_name: backend-app
     ports:
