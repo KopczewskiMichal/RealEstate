@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="13f73873-01e0-494a-9b84-30a0115a26a8" name="Changes" comment="Cors działa przynajmniej dla niezabezpieczonych endpointów. Przy zabezpieczonych sie pierdzieli">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/businessLogic/Flat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/businessLogic/House.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/businessLogic/Place.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/databaseOperations/CustomDatabaseException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/databaseOperations/OfferIntoDb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/databaseOperations/OffersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/databaseOperations/SessionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/oauth2Config/PseudoRoles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/oauth2Config/Roles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/oauth2Config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/testEndpoints/GenTestJsons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/testEndpoints/SimpleEndpoints.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/springServer/users/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/backend/BackendApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KopczewskiMichal&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:KopczewskiMichal/Twitter.git&quot;,
+    &quot;accountId&quot;: &quot;f18d6e0e-deba-433d-98ca-20d10931a242&quot;
+  }
+}</component>
+  <component name="JvmLoggingSettingsStorage">
+    <option name="loggerId" value="Slf4j" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2gyP7DfNwdDknxLW4lVV0Vf9GMz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.JSONToPlace.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ToolWindowEndpoints.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michalkopczewski/RealEstate/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/SpringServer/businessLogic" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="JSONToPlace" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="springServer.testEndpoints.GenTestJsons" />
+      <module name="backend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-22" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="CLIENT-ID" value="1016855152014-5efd9d35qavhn090l98b810hhd3ijdsf.apps.googleusercontent.com" />
+        <env name="CLIENT-SECRET" value="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1" />
+      </envs>
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="springServer.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.JSONToPlace" />
+      <item itemvalue="HTTP Request.All in generated-requests" />
+      <item itemvalue="Spring Boot.Application" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13f73873-01e0-494a-9b84-30a0115a26a8" name="Changes" comment="" />
+      <created>1716666675100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716666675100</updated>
+      <workItem from="1716666676267" duration="14771000" />
+      <workItem from="1716744070468" duration="6155000" />
+      <workItem from="1716802101983" duration="2436000" />
+      <workItem from="1716816410937" duration="1074000" />
+      <workItem from="1716840328380" duration="49000" />
+      <workItem from="1716984439974" duration="11092000" />
+      <workItem from="1717071349199" duration="2501000" />
+      <workItem from="1717158190782" duration="22580000" />
+      <workItem from="1717395252357" duration="14201000" />
+      <workItem from="1717449625962" duration="3407000" />
+      <workItem from="1717483766400" duration="532000" />
+      <workItem from="1717484642922" duration="22963000" />
+      <workItem from="1717590078177" duration="7713000" />
+      <workItem from="1717667669585" duration="11698000" />
+      <workItem from="1718369278905" duration="2976000" />
+      <workItem from="1718403338853" duration="25795000" />
+      <workItem from="1718722263540" duration="902000" />
+      <workItem from="1718723852028" duration="9000" />
+      <workItem from="1718723878124" duration="38000" />
+      <workItem from="1718724002364" duration="7841000" />
+      <workItem from="1718819654935" duration="12592000" />
+      <workItem from="1719138626012" duration="5177000" />
+    </task>
+    <task id="LOCAL-00001" summary="Pobranie wszystkich danych o użytkowniku z serwera oauth">
+      <option name="closed" value="true" />
+      <created>1716749335442</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716749335442</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Sprawne połączenie z bazą i przekazanie wprost rekordów na endpoint.">
+      <option name="closed" value="true" />
+      <created>1717088942931</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717088942932</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Klasa User oraz tworzenie obiektu User z danych z oauth">
+      <option name="closed" value="true" />
+      <created>1717175160482</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717175160482</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Metoda toJSON w klasie User">
+      <option name="closed" value="true" />
+      <created>1717230839909</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717230839909</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Metody toJson w Place i klasach dziedziczących.">
+      <option name="closed" value="true" />
+      <created>1717232236368</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717232236368</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Niesprawne próby stworzenia endpointu dodawania nieruchomości">
+      <option name="closed" value="true" />
+      <created>1717322499037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717322499037</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Sprawne tworzenie obiektów klas dziedziczących z Place z obiektów JSON.">
+      <option name="closed" value="true" />
+      <created>1717326419056</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717326419056</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Uporządkowanie oraz ładne toStringi">
+      <option name="closed" value="true" />
+      <created>1717397402360</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717397402360</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Wyłączono csrf">
+      <option name="closed" value="true" />
+      <created>1717428426830</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717428426831</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Sprawne dodawanie ofert do bazy, z zaciąganiem info o twórcy z oauth.">
+      <option name="closed" value="true" />
+      <created>1717440647278</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717440647278</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Jeśli użytkownik jest w bazie ale ze starymi danymi to go aktualizuje">
+      <option name="closed" value="true" />
+      <created>1717451635003</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717451635003</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Dodano pola zdjęcia oraz opisu">
+      <option name="closed" value="true" />
+      <created>1717499376778</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717499376778</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Sprawny endpoint pobrania wszystkich ofert z serwera">
+      <option name="closed" value="true" />
+      <created>1717505084239</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717505084240</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Pobranie wszystkich ofert pobiera tylko przyszłe (z założenia ma wyświetlić po prostu dostępne oferty)">
+      <option name="closed" value="true" />
+      <created>1717506617672</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717506617672</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Endpoint pobrania wszystkich ofert stworzonych przez usera o danym mailu">
+      <option name="closed" value="true" />
+      <created>1717515056661</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717515056661</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Sprawne usówanie dowolnej oferty, dostępne tylko dla admina">
+      <option name="closed" value="true" />
+      <created>1717680655605</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717680655606</updated>
+    </task>
+    <task id="LOCAL-00017" summary="User jest serializable. Po pobraniu usera z bazy jest kulturalnie zamieniany na instancje User. W klasie User role są przechowywane jako string (Pracujemy nad tym)">
+      <option name="closed" value="true" />
+      <created>1717684661977</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717684661979</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Serializacja i deserializacja Usera z JSON działa pięknie, wszystkie operacje są z enum Roles">
+      <option name="closed" value="true" />
+      <created>1717685525322</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717685525323</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Sprawne usówanie własnych ofert (dokładniej ustawianie czasu końca na dzisiaj)">
+      <option name="closed" value="true" />
+      <created>1717689249593</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717689249594</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Endpoint all-auctions niezalogowanym zwraca wszystkie aktualne oferty a zalogowanym wszystkie aktualne NIE ICH oferty. Dodatkowo dodano logo aplikacji do plików">
+      <option name="closed" value="true" />
+      <created>1718465807641</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1718465807641</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Zmieniono port na 3001 aby łatwiej uruchamiać frontend">
+      <option name="closed" value="true" />
+      <created>1718535719621</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1718535719621</updated>
+    </task>
+    <task id="LOCAL-00022" summary="JWT generuje się poprawnie">
+      <option name="closed" value="true" />
+      <created>1718670591506</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1718670591506</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Wywalono śmieci związane z JWT, wycofałem się z tego pomysłu.">
+      <option name="closed" value="true" />
+      <created>1718758026100</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1718758026102</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Cors działa przynajmniej dla niezabezpieczonych endpointów. Przy zabezpieczonych sie pierdzieli">
+      <option name="closed" value="true" />
+      <created>1718766690801</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1718766690803</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sprawne połączenie z bazą i przekazanie wprost rekordów na endpoint." />
+    <MESSAGE value="Klasa User oraz tworzenie obiektu User z danych z oauth" />
+    <MESSAGE value="Metoda toJSON w klasie User" />
+    <MESSAGE value="Metody toJson w Place i klasach dziedziczących." />
+    <MESSAGE value="Niesprawne próby stworzenia endpointu dodawania nieruchomości" />
+    <MESSAGE value="Sprawne tworzenie obiektów klas dziedziczących z Place z obiektów JSON." />
+    <MESSAGE value="Uporządkowanie oraz ładne toStringi" />
+    <MESSAGE value="Wyłączono csrf" />
+    <MESSAGE value="Sprawne dodawanie ofert do bazy, z zaciąganiem info o twórcy z oauth." />
+    <MESSAGE value="Jeśli użytkownik jest w bazie ale ze starymi danymi to go aktualizuje" />
+    <MESSAGE value="Dodano pola zdjęcia oraz opisu" />
+    <MESSAGE value="Sprawny endpoint pobrania wszystkich ofert z serwera" />
+    <MESSAGE value="Pobranie wszystkich ofert pobiera tylko przyszłe (z założenia ma wyświetlić po prostu dostępne oferty)" />
+    <MESSAGE value="Endpoint pobrania wszystkich ofert stworzonych przez usera o danym mailu" />
+    <MESSAGE value="Sprawne usówanie dowolnej oferty, dostępne tylko dla admina" />
+    <MESSAGE value="User jest serializable. Po pobraniu usera z bazy jest kulturalnie zamieniany na instancje User a następnie dokonywane są operacje." />
+    <MESSAGE value="User jest serializable. Po pobraniu usera z bazy jest kulturalnie zamieniany na instancje User. W klasie User role są przechowywane jako string (Pracujemy nad tym)" />
+    <MESSAGE value="Serializacja i deserializacja Usera z JSON działa pięknie, wszystkie operacje są z enum Roles" />
+    <MESSAGE value="Endpoint usówania własnej oferty, usówa dosłownie usówa" />
+    <MESSAGE value="Sprawne usówanie własnych ofert (dokładniej ustawianie czasu końca na dzisiaj)" />
+    <MESSAGE value="Endpoint all-auctions niezalogowanym zwraca wszystkie aktualne oferty a zalogowanym wszystkie aktualne NIE ICH oferty. Dodatkowo dodano logo aplikacji do plików" />
+    <MESSAGE value="Zmieniono port na 3001 aby łatwiej uruchamiać frontend" />
+    <MESSAGE value="JWT generuje się poprawnie" />
+    <MESSAGE value="Wywalono śmieci związane z JWT, wycofałem się z tego pomysłu." />
+    <MESSAGE value="Cors działa przynajmniej dla niezabezpieczonych endpointów. Przy zabezpieczonych sie pierdzieli" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cors działa przynajmniej dla niezabezpieczonych endpointów. Przy zabezpieczonych sie pierdzieli" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
